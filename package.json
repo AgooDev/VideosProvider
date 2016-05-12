@@ -18,8 +18,8 @@
     "mongodb",
     "mysql"
   ],
-  "author": "Alejandro Mantilla (@AlejoJamC)",
-  "license": "MIT",
+  "author": "Alejandro Mantilla (@AlejoJamC), Agoo.com.co <http://www.agoo.com.co>",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/AgooDev/VideosProvider/issues"
   },
