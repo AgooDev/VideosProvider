@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2015-present, Agoo.com.co <http://www.agoo.com.co>.
+ * Copyright (c) 2016-present, Agoo.com.co <http://www.agoo.com.co>.
  * All rights reserved.
  *
  * This source code is licensed under the BSD-style license found in the
@@ -22,3 +22,21 @@ var express             = require('express'),
 
     logger              = require('./config/logger').logger,
     morgan              = require('morgan'),
+
+    routes              = require('./routes/routes'),
+
+    environment         = 'devLocal',
+    config              = require('./config/environment.json')[environment],
+    port                = config.port;
+
+logger.info('Enviroment: ' + environment);
+
+// Choose the environment of work
+var environment = 'devLocal';
+logger.info('Chose the work environment: ' + environment);
+var config = require('./config/environment.json')[environment];
+logger.info('API version: ' + config.version);
+
+// Mongoose connection logger
+var mongoDB = require('./config/mongodb');
+mongoDB.setupMongoDB(config.nosqlDB);
