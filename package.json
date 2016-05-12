@@ -1,0 +1,40 @@
+{
+  "name": "videosprovider",
+  "version": "0.1.0",
+  "description": "Basic rest project to provide the list of public videos via json",
+  "main": "server.js",
+  "scripts": {
+    "test": "make test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://alejojamc@github.com/AgooDev/VideosProvider.git"
+  },
+  "keywords": [
+    "rest",
+    "nodejs",
+    "expressjs",
+    "mongodb",
+    "mysql"
+  ],
+  "author": "Alejandro Mantilla (@AlejoJamC)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AgooDev/VideosProvider/issues"
+  },
+  "homepage": "https://github.com/AgooDev/VideosProvider#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.4.16",
+    "passport": "^0.3.2",
+    "string": "^3.3.1",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.2",
+    "nodemon": "^1.9.2"
+  }
+}
