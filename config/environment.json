@@ -2,18 +2,18 @@
   "devLocal": {
     "port":           4000,
     "version":        "/v0",
-    "mongoDB":"dynamite"
+    "mongoDB":"agoo"
   },
 
   "devServer": {
     "port":           4000,
     "version":        "/v0",
-    "mongoDB":"dynamite"
+    "mongoDB":"agoo"
   },
 
   "production": {
     "port":           3000,
     "version":        "/v1",
-    "mongoDB":"dynamite"
+    "mongoDB":"agoo"
   }
 }
