@@ -1,0 +1,19 @@
+{
+  "devLocal": {
+    "port":           4000,
+    "version":        "/v0",
+    "mongoDB":"dynamite"
+  },
+
+  "devServer": {
+    "port":           4000,
+    "version":        "/v0",
+    "mongoDB":"dynamite"
+  },
+
+  "production": {
+    "port":           3000,
+    "version":        "/v1",
+    "mongoDB":"dynamite"
+  }
+}
