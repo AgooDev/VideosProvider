@@ -32,11 +32,9 @@ var express             = require('express'),
 logger.info('Enviroment: ' + environment);
 
 // Choose the environment of work
-var environment = 'devLocal';
 logger.info('Chose the work environment: ' + environment);
-var config = require('./config/environment.json')[environment];
 logger.info('API version: ' + config.version);
 
 // Mongoose connection logger
 var mongoDB = require('./config/mongodb');
-mongoDB.setupMongoDB(config.nosqlDB);
+mongoDB.setupMongoDB(config.mongoDB);
