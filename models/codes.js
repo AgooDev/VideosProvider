@@ -30,4 +30,4 @@ var CodeSchema   = new Schema({
 },{ versionKey: false });
 
 // Export the Mongoose model
-module.exports.Code = mongoose.model('Code', CodeSchema);
+module.exports.Codes = mongoose.model('Codes', CodeSchema);

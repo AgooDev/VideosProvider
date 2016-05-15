@@ -32,4 +32,4 @@ var NotificationSchema = new Schema({
 },{ versionkey: false});
 
 // Export the Mongoose model
-module.exports.Notification = mongoose.model('Notification', NotificationSchema);
+module.exports.Notifications = mongoose.model('Notifications', NotificationSchema);

@@ -28,4 +28,4 @@ var PublicVideoSchema = new Schema({
 },{ versionkey: false});
 
 // Export the Mongoose model
-module.exports.PublicVideos = mongoose.model('PublicVideo', PublicVideoSchema);
+module.exports.PublicVideos = mongoose.model('PublicVideos', PublicVideoSchema);
