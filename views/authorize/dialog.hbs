@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="KGuatiguara">
+    <meta name="author" content="Agoo.com.co">
     <link rel="icon" href="/img/favicon.ico">
     <title>Estoy Bien APP | Allow APIs clients</title>
     <!-- Bootstrap core CSS-->
@@ -34,7 +34,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="">Temporal Dialog</a></li>
+                    <li class="active"><a href="/v0/oauth2/authorize?client_id={client.id}&response_type=code&redirect_uri=https://agoo.com.co">Temporal Dialog</a></li>
                     <li><a href="/v0/clients">List of Clients</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -54,9 +54,9 @@
     <div class="jumbotron">
         <div class="container">
             <form role="form" action="/v0/oauth2/authorize" method="post" class="form-signin">
-                <h2>Hi {user.email}</h2>
+                <h2>Hi {{{user.email}}}</h2>
                 <input type="hidden" name="transaction_id" value="undefined">
-                <p>[b {client.name} ] is requesting <b>full access </b> to your account</p>
+                <p><b> {{{client.name}}} </b> is requesting <b>full access </b> to your account</p>
                 <p>
                     <input type="submit" value="Allow" id="allow" class="btn btn-primary">
                     <input type="submit" value="Deny" name="cancel" id="deny" class="btn btn-danger">
