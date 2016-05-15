@@ -69,7 +69,7 @@ app.use(session({
 // Set header 'X-Powered-By'
 logger.info('API powered by: Agoo.com.co');
 app.use(function (req, res, next) {
-    res.set('X-Powered-By', 'Agoo.com.co <http://www.agoo.com.co>');
+    res.set('X-Powered-By', 'Agoo.com.co <www.agoo.com.co>');
     next();
 });
 

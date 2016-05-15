@@ -8,7 +8,7 @@
 
 // Load required packages
 var mongoose = require('mongoose');
-var Schema = mongoose.schema;
+var Schema = mongoose.Schema;
 // Define our token schema
 var TokenSchema = new Schema({
     value: {
