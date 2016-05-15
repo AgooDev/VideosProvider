@@ -38,3 +38,23 @@ logger.info('API version: ' + config.version);
 // Mongoose connection logger
 var mongoDB = require('./config/mongodb');
 mongoDB.setupMongoDB(config.mongoDB);
+
+// Create our express application
+var app = express();
+
+//ROUTER
+//Create our Express router
+var router  = express.Router();
+
+// Setup all routes on express router
+routes.setupRouter(router);
+
+
+// Register all our routes with a prefix: /api or /v1
+// This poject is created to be hosted in a subdomain dedicated to authentication and authorization
+// Example of an URL with the prefix: auth.happyauth.com/v0
+app.use(config.version, router);
+
+// Start the server
+app.listen(port);
+logger.info('API running on http://localhost:' + port + config.version + '/');
