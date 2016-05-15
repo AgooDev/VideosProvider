@@ -11,13 +11,13 @@ var oauth2orize = require('oauth2orize');
 var Logger = require('../config/logger');
 var logger = Logger.logger;
 var UserDataModel = require('../models/users');
-var User = UserDataModel.User;
+var User = UserDataModel.Users;
 var ClientDataModel = require('../models/clients');
 var Client = ClientDataModel.Clients;
 var TokenDataModel = require('../models/tokens');
-var Token = TokenDataModel.Token;
+var Token = TokenDataModel.Tokens;
 var CodeDataModel = require('../models/codes');
-var Code = CodeDataModel.Code;
+var Code = CodeDataModel.Codes;
 
 // Create OAuth 2.0 server
 var server = oauth2orize.createServer();

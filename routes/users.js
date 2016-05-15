@@ -8,7 +8,7 @@
 
 // Load required packages
 var logger = require('../config/logger').logger;
-var User = require('../models/users').User;
+var User = require('../models/users').Users;
 
 // ENDPOINT: /users METHOD: GET
 exports.getUsers = function(req, res){

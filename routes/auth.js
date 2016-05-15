@@ -16,11 +16,11 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // Load required models
 var UserDataModel = require('../models/users');
-var User = UserDataModel.User;
+var User = UserDataModel.Users;
 var ClientDataModel = require('../models/clients');
 var Client = ClientDataModel.Clients;
 var TokenDataModel = require('../models/tokens');
-var Token = TokenDataModel.Token;
+var Token = TokenDataModel.Tokens;
 
 passport.use(new BasicStrategy(
     function(email, password, callback) {
