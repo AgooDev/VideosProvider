@@ -42,6 +42,43 @@ mongoDB.setupMongoDB(config.mongoDB);
 // Create our express application
 var app = express();
 
+// Config views and template engine.
+// Use `.hbs` for extensions and find partials in `views/partials`.
+app.engine('hbs', hbs.express4({
+    partialsDir: __dirname + '/views/partials',
+    layoutsDir: __dirname + '/views/layouts'
+}));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
+
+// Using body-parser in our application
+// create application/json parser
+app.use(bodyParser.json());
+// create application/x-www-form-urlencoded parser
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+// Use express session support since OAuth2orize requires it
+app.use(session({
+    resave: true,
+    saveUninitialized: true,
+    secret: '1f u c4n r34d th1s u r34lly n33d t0 g37 l41d'
+}));
+
+// Set header 'X-Powered-By'
+logger.info('API powered by: Agoo.com.co');
+app.use(function (req, res, next) {
+    res.set('X-Powered-By', 'Agoo.com.co <http://www.agoo.com.co>');
+    next();
+});
+
+// Use the passport package in our application
+app.use(passport.initialize());
+
+// Path to our public directory
+app.use(express.static(__dirname + '/public'));
+
 //ROUTER
 //Create our Express router
 var router  = express.Router();
