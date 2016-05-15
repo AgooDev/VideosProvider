@@ -1,12 +1,12 @@
 {
   "devLocal": {
-    "port":           4000,
+    "port":           3200,
     "version":        "/v0",
     "mongoDB":"agoo"
   },
 
   "devServer": {
-    "port":           4000,
+    "port":           3200,
     "version":        "/v0",
     "mongoDB":"agoo"
   },
