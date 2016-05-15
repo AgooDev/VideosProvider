@@ -13,9 +13,9 @@ var fs          = require('fs'),
     path        = require('path'),
     winston     = require('winston'),
 
-    filedebug   = path.join(__dirname,'..','logs','debuglogs.log'),
-    filerror    = path.join(__dirname,'..','logs','errorlogs.log'),
-    fileinfo    = path.join(__dirname,'..','logs','infologs.log');
+    filedebug   = path.join(__dirname,'..','logs','debug.log'),
+    filerror    = path.join(__dirname,'..','logs','error.log'),
+    fileinfo    = path.join(__dirname,'..','logs','infolog');
 
 // Activate winston emitter
 winston.emitErrs = true;
