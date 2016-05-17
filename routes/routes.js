@@ -118,8 +118,7 @@ function setupRouter (router){
     // ENDPOINT: /users
     router.route('/users')
         .get(authRoutes.isAuthenticated, userRoutes.getUsers)
-        .post(userRoutes.postUser);
-    //.post(authRoutes.isAuthenticated, userRoutes.postUser);
+        .post(authRoutes.isAuthenticated, userRoutes.postUser);
 
     // ENDPOINT: /users/:id
     // ENDPOINT: /users/count
@@ -141,6 +140,18 @@ function setupRouter (router){
     // ENDPOINT: /password/reset/:code
     router.route('/password/reset/:code')
         .patch(authRoutes.isAuthenticated, userRoutes.PatchPasswordReset);
+
+    // ENDPOINT: /external/login
+    router.route('/external/login')
+        .get(authRoutes.isLoginAuthenticated, userRoutes.getExternalLogin);
+
+    // ENDPOINT: /external/password/reset
+    router.route('/external/password/reset')
+        .post(authRoutes.isAuthenticated, userRoutes.postExternalPasswordReset);
+
+    // ENDPOINT: /external/password/reset/:code
+    router.route('/external/password/reset/:code')
+        .patch(authRoutes.isAuthenticated, userRoutes.PatchExternalPasswordReset);
 
     /**
      * ====================================================================
