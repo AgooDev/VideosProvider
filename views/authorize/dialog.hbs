@@ -55,7 +55,7 @@
         <div class="container">
             <form role="form" action="/v0/oauth2/authorize" method="post" class="form-signin">
                 <h2>Hi {{{user.email}}}</h2>
-                <input type="hidden" name="transaction_id" value="undefined">
+                <input type="hidden" name="transaction_id" value="{{{transactionID}}}">
                 <p><b> {{{client.name}}} </b> is requesting <b>full access </b> to your account</p>
                 <p>
                     <input type="submit" value="Allow" id="allow" class="btn btn-primary">
