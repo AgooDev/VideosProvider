@@ -279,20 +279,7 @@ exports.PatchPasswordReset = function (req, res) {
     });
 };
 
-// ENDPOINT: /users METHOD: POST
-exports.postUser = function (req, res) {
-    // Create a new instance of the User model
-    var user = new User();
-
-    // Set the User properties that came from the POST data
-    user.name = req.body.name;
-    user.lastName = req.body.lastName;
-    user.email = req.body.email;
-    user.password = req.body.password;
-    user.creationDate = Date.now();
-    user.enabled = true;
-
-    user.save(function(err){
+// ENDPOINT: /external/login METHOD: GET
         // Check for errors and show message
         if(err){
             logger.error(err);
@@ -304,9 +291,7 @@ exports.postUser = function (req, res) {
     });
 };
 
-// ENDPOINT: /users/:id METHOD: PUT
-exports.putUser = function(req, res){
-    User.findById(req.params.id, function (err, user) {
+// ENDPOINT: /external/password/reset METHOD: POST
         // Check for errors and show message
         if(err){
             logger.error(err);
@@ -333,9 +318,7 @@ exports.putUser = function(req, res){
     });
 };
 
-// ENDPOINT: /users/:id METHOD: PATCH
-exports.patchUser = function(req, res){
-    User.findById(req.params.id, function (err, user) {
+// ENDPOINT: /external/password/reset/:code METHOD: PATCH
         // Check for errors and show message
         if(err){
             logger.error(err);
