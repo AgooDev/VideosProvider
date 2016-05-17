@@ -51,6 +51,12 @@ app.engine('hbs', hbs.express4({
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
+// Favicon path.
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
+
+// Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+app.use(methodOverride());
+
 // Using body-parser in our application
 // create application/json parser
 app.use(bodyParser.json());
@@ -58,6 +64,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+// Import static files.
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Use express session support since OAuth2orize requires it
 app.use(session({
@@ -86,10 +95,15 @@ var router  = express.Router();
 // Setup all routes on express router
 routes.setupRouter(router);
 
+// Error handler available environment
+var env = process.env.NODE_ENV || environment;
+if ('devLocal' === env){
+    app.use(errorHandler());
+}
 
 // Register all our routes with a prefix: /api or /v1
 // This poject is created to be hosted in a subdomain dedicated to authentication and authorization
-// Example of an URL with the prefix: auth.happyauth.com/v0
+// Example of an URL with the prefix: auth.myDomain.com/v0
 app.use(config.version, router);
 
 // Start the server
