@@ -95,6 +95,12 @@ var router  = express.Router();
 // Setup all routes on express router
 routes.setupRouter(router);
 
+// Local variables.
+app.locals.CURRENTYEAR = moment().year(); // Current year.
+app.locals.CURRENTENVIRONMENT = environment; // Current Environment
+app.locals.EXPOSURE = config.exposure.webservice;
+app.locals.EXPOSUREBEARE = config.exposure.bearer;
+
 // Error handler available environment
 var env = process.env.NODE_ENV || environment;
 if ('devLocal' === env){

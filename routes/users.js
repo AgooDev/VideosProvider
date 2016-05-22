@@ -10,6 +10,7 @@
 var logger = require('../config/logger').logger;
 var User = require('../models/users').Users;
 var UserReset = require('../models/userReset').UserReset;
+var request = require('request');
 
 // ENDPOINT: /users METHOD: GET
 exports.getUsers = function(req, res){
@@ -280,83 +281,27 @@ exports.PatchPasswordReset = function (req, res) {
 };
 
 // ENDPOINT: /external/login METHOD: GET
-        // Check for errors and show message
-        if(err){
-            logger.error(err);
-            res.send(err);
-            return;
+exports.getExternalLogin = function (req, res) {
+    var options = {
+        'url': EXPOSURE + '/login',
+        'auth':{
+            'bearer': EXPOSUREBEARE
         }
-        //Success
-        res.json({ message: 'User created successfully!', data: user });
+    };
+
+    request.get(options, function (error, response, body) {
+        if(!error && response.statusCode == 200){
+
+        }
     });
 };
 
 // ENDPOINT: /external/password/reset METHOD: POST
-        // Check for errors and show message
-        if(err){
-            logger.error(err);
-            res.send(err);
-            return;
-        }
+exports.postExternalPasswordReset = function (req, res) {
 
-        // Set the User properties that came from the PUT data
-        user.name = req.body.name;
-        user.lastName = req.body.lastName;
-        user.email = req.body.email;
-        user.password = req.body.password;
-        user.creationDate = req.body.creationDate;
-        user.enabled = req.body.enabled;
-        user.save(function(err){
-            // Check for errors and show message
-            if(err){
-                logger.error(err);
-                res.send(err);
-            }
-            // success
-            res.json({message: 'User updated successfully', data: user });
-        });
-    });
 };
 
 // ENDPOINT: /external/password/reset/:code METHOD: PATCH
-        // Check for errors and show message
-        if(err){
-            logger.error(err);
-            res.send(err);
-            return;
-        }
-
-        user.enabled = req.body.enabled;
-
-        user.save(function(err){
-            // Check for errors and show message
-            if(err){
-                logger.error(err);
-                res.send(err);
-                return;
-            }
-            var message = '';
-            if(user.enabled === true){
-                message = 'User enabled successfully';
-            }else{
-                message = 'User disbled successfully';
-            }
-            // success
-            res.json({message: message, data: user });
-        });
-    });
-};
-
-// ENDPOINT: /users/:id METHOD: DELETE
-exports.deleteUser = function(req, res){
-    User.findByIdAndRemove(req.params.id, function(err){
-        // Check for errors and show message
-        if(err){
-            logger.error(err);
-            res.send(err);
-            return;
-        }
-        // success
-        res.json({ message: 'User deleted successfully!' });
-    });
+exports.PatchExternalPasswordReset = function (req, res) {
+    
 };

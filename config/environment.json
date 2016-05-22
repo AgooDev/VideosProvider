@@ -2,18 +2,30 @@
   "devLocal": {
     "port":           3200,
     "version":        "/v0",
-    "mongoDB":"agoo"
+    "mongoDB":"agoo",
+    "exposure":{
+      "webservice":"",
+      "bearer":""
+    }
   },
 
   "devServer": {
     "port":           3200,
     "version":        "/v0",
-    "mongoDB":"agoo"
+    "mongoDB":"agoo",
+    "exposure":{
+      "webservice":"",
+      "bearer":""
+    }
   },
 
   "production": {
     "port":           3000,
     "version":        "/v1",
-    "mongoDB":"agoo"
+    "mongoDB":"agoo",
+    "exposure":{
+      "webservice":"",
+      "bearer":""
+    }
   }
 }
